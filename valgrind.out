@@ -1,0 +1,108 @@
+==13807== Memcheck, a memory error detector
+==13807== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==13807== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==13807== Command: bin/bourse -p 9999
+==13807== Parent PID: 13795
+==13807== 
+==13807== Syscall param rt_sigaction(act->sa_flags) points to uninitialised byte(s)
+==13807==    at 0x4E4E95D: __libc_sigaction (sigaction.c:62)
+==13807==    by 0x10A2F3: main (main.c:108)
+==13807==  Address 0x1ffefffb48 is on thread 1's stack
+==13807==  in frame #0, created by __libc_sigaction (sigaction.c:47)
+==13807== 
+==13807== Thread 3:
+==13807== Invalid read of size 4
+==13807==    at 0x10A5FA: brs_client_service (server.c:35)
+==13807==    by 0x4E436DA: start_thread (pthread_create.c:463)
+==13807==    by 0x517C88E: clone (clone.S:95)
+==13807==  Address 0x544c370 is 0 bytes inside a block of size 4 free'd
+==13807==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==13807==    by 0x10A4D2: main (main.c:140)
+==13807==  Block was alloc'd at
+==13807==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==13807==    by 0x10B175: Malloc (csapp.c:289)
+==13807==    by 0x10A40F: main (main.c:129)
+==13807== 
+==13807== Invalid free() / delete / delete[] / realloc()
+==13807==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==13807==    by 0x10A654: brs_client_service (server.c:44)
+==13807==    by 0x4E436DA: start_thread (pthread_create.c:463)
+==13807==    by 0x517C88E: clone (clone.S:95)
+==13807==  Address 0x544c370 is 0 bytes inside a block of size 4 free'd
+==13807==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==13807==    by 0x10A4D2: main (main.c:140)
+==13807==  Block was alloc'd at
+==13807==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==13807==    by 0x10B175: Malloc (csapp.c:289)
+==13807==    by 0x10A40F: main (main.c:129)
+==13807== 
+==13807== Conditional jump or move depends on uninitialised value(s)
+==13807==    at 0x50B78DA: vfprintf (vfprintf.c:1642)
+==13807==    by 0x50B967F: buffered_vfprintf (vfprintf.c:2329)
+==13807==    by 0x50B6725: vfprintf (vfprintf.c:1301)
+==13807==    by 0x50BFE53: fprintf (fprintf.c:32)
+==13807==    by 0x10C0EB: proto_recv_packet (protocol.c:67)
+==13807==    by 0x10A719: brs_client_service (server.c:63)
+==13807==    by 0x4E436DA: start_thread (pthread_create.c:463)
+==13807==    by 0x517C88E: clone (clone.S:95)
+==13807== 
+==13807== Use of uninitialised value of size 8
+==13807==    at 0x50B386B: _itoa_word (_itoa.c:179)
+==13807==    by 0x50B6F0D: vfprintf (vfprintf.c:1642)
+==13807==    by 0x50B967F: buffered_vfprintf (vfprintf.c:2329)
+==13807==    by 0x50B6725: vfprintf (vfprintf.c:1301)
+==13807==    by 0x50BFE53: fprintf (fprintf.c:32)
+==13807==    by 0x10C0EB: proto_recv_packet (protocol.c:67)
+==13807==    by 0x10A719: brs_client_service (server.c:63)
+==13807==    by 0x4E436DA: start_thread (pthread_create.c:463)
+==13807==    by 0x517C88E: clone (clone.S:95)
+==13807== 
+==13807== Conditional jump or move depends on uninitialised value(s)
+==13807==    at 0x50B3875: _itoa_word (_itoa.c:179)
+==13807==    by 0x50B6F0D: vfprintf (vfprintf.c:1642)
+==13807==    by 0x50B967F: buffered_vfprintf (vfprintf.c:2329)
+==13807==    by 0x50B6725: vfprintf (vfprintf.c:1301)
+==13807==    by 0x50BFE53: fprintf (fprintf.c:32)
+==13807==    by 0x10C0EB: proto_recv_packet (protocol.c:67)
+==13807==    by 0x10A719: brs_client_service (server.c:63)
+==13807==    by 0x4E436DA: start_thread (pthread_create.c:463)
+==13807==    by 0x517C88E: clone (clone.S:95)
+==13807== 
+==13807== Conditional jump or move depends on uninitialised value(s)
+==13807==    at 0x50B7014: vfprintf (vfprintf.c:1642)
+==13807==    by 0x50B967F: buffered_vfprintf (vfprintf.c:2329)
+==13807==    by 0x50B6725: vfprintf (vfprintf.c:1301)
+==13807==    by 0x50BFE53: fprintf (fprintf.c:32)
+==13807==    by 0x10C0EB: proto_recv_packet (protocol.c:67)
+==13807==    by 0x10A719: brs_client_service (server.c:63)
+==13807==    by 0x4E436DA: start_thread (pthread_create.c:463)
+==13807==    by 0x517C88E: clone (clone.S:95)
+==13807== 
+==13807== Conditional jump or move depends on uninitialised value(s)
+==13807==    at 0x50B7B4C: vfprintf (vfprintf.c:1642)
+==13807==    by 0x50B967F: buffered_vfprintf (vfprintf.c:2329)
+==13807==    by 0x50B6725: vfprintf (vfprintf.c:1301)
+==13807==    by 0x50BFE53: fprintf (fprintf.c:32)
+==13807==    by 0x10C0EB: proto_recv_packet (protocol.c:67)
+==13807==    by 0x10A719: brs_client_service (server.c:63)
+==13807==    by 0x4E436DA: start_thread (pthread_create.c:463)
+==13807==    by 0x517C88E: clone (clone.S:95)
+==13807== 
+==13807== Conditional jump or move depends on uninitialised value(s)
+==13807==    at 0x10C177: proto_recv_packet (protocol.c:78)
+==13807==    by 0x10A719: brs_client_service (server.c:63)
+==13807==    by 0x4E436DA: start_thread (pthread_create.c:463)
+==13807==    by 0x517C88E: clone (clone.S:95)
+==13807== 
+==13807== Conditional jump or move depends on uninitialised value(s)
+==13807==    at 0x10A7D5: brs_client_service (server.c:75)
+==13807==    by 0x4E436DA: start_thread (pthread_create.c:463)
+==13807==    by 0x517C88E: clone (clone.S:95)
+==13807== 
+==13807== 
+==13807== More than 10000000 total errors detected.  I'm not reporting any more.
+==13807== Final error counts will be inaccurate.  Go fix your program!
+==13807== Rerun with --error-limit=no to disable this cutoff.  Note
+==13807== that errors may occur in your program without prior warning from
+==13807== Valgrind, because errors are no longer being displayed.
+==13807== 
